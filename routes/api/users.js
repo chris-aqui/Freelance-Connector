@@ -1,5 +1,5 @@
-/* eslint-disable no-else-return */
-/* eslint-disable eol-last */
+/* eslint-disable */
+
 // auth for user
 
 const express = require('express');
@@ -24,6 +24,7 @@ router.post('/register', (req, res) => {
       if (user) {
         return res.status(400).json({ email: 'Email already exists' });
       } else {
+        // notes in 10
         const avatar = gravatar.url(req.body.email, {
           s: '200', // size 200
           r: 'pg', // rating

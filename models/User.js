@@ -1,5 +1,4 @@
-/* eslint-disable no-multi-assign */
-/* eslint-disable eol-last */
+/* eslint-disable */
 const mongoose = require('mongoose');
 
 // eslint-disable-next-line prefer-destructuring
