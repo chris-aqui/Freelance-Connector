@@ -5,7 +5,9 @@ const express = require('express');
 
 const router = express.Router();
 
-// rout /api/users/test is not needed. only test as api/users is used in server.
+// @router  GET to /api/users/users
+// @desc    Tests users route
+// @access  Public
 router.get('/test', (req, res) => res.json({ msg: 'Users Works' }));
 
 module.exports = router;

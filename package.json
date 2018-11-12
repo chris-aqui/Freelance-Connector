@@ -4,11 +4,16 @@
   "description": "Freelance Developer Social Network",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server",
+    "client-install": "npm install --prefix client",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "lint": "eslint \"**/*.js\"",
     "lints": "eslint server.js",
     "fix": "eslint --fix .",
-    "test": "npm run lint"
+    "test": "npm run lint",
+    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "author": "Christine Aqui",
   "license": "MIT",
