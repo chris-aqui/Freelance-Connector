@@ -29,7 +29,7 @@ mongoose
 app.get('/', (req, res) => res.send('Hello'));
 
 // use routes
-app.use('/api/user', users);
+app.use('/api/users', users);
 app.use('/api/profile', profile);
 app.use('/api/post', post);
 
