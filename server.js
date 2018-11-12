@@ -1,8 +1,9 @@
+/* eslint-disable no-console */
 // require
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const path = require('path');
+// const path = require('path');
 // require routes
 const users = require('./routes/api/users');
 const profile = require('./routes/api/profile');

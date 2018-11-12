@@ -13,22 +13,23 @@
     "lints": "eslint server.js",
     "fix": "eslint --fix .",
     "test": "npm run lint",
-    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "author": "Christine Aqui",
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
+    "eslint-config-prettier": "^2.10.0",
+    "eslint-plugin-html": "^4.0.5",
+    "eslint-plugin-prettier": "^2.6.2",
     "express": "^4.16.4",
+    "gravatar": "^1.6.0",
     "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.3.11",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
-    "validator": "^10.9.0",
-    "eslint-config-prettier": "^2.10.0",
-    "eslint-plugin-html": "^4.0.5",
-    "eslint-plugin-prettier": "^2.6.2"
+    "validator": "^10.9.0"
   },
   "devDependencies": {
     "eslint": "^5.9.0",
