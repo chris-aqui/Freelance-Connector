@@ -86,7 +86,18 @@ router.post('/login', (req, res) => {
             // User matched
             const payload = { id: user.id, name: user.name, avatar: user.avatar } // create jwt payload
             // Sign token
-            jwt.sign(payload, keys.secretOfKey, { expiresIn: 3600 }); // expires in 1h
+            // jwt.sign(payload, secretOrPrivateKey, [options, callback])
+            // this is Asynchronous because a callback is given
+            jwt.sign(
+              payload, 
+              keys.secretOfKey, 
+              { expiresIn: 3600 },
+              (err, token) => {
+                res.json({
+                  success: true,
+                  token: 'Bearer ' + token
+                })
+              }); // expires in 1h
           } else {
             return res.status(400).json({
               password: 'Password Incorrect '
@@ -98,3 +109,6 @@ router.post('/login', (req, res) => {
 });
 
 module.exports = router;
+
+// Docs refered
+// https://github.com/auth0/node-jsonwebtoken#readme
