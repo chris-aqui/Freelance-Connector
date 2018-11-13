@@ -6,6 +6,8 @@ const express = require('express');
 const bcrypt = require('bcryptjs');
 const gravatar = require('gravatar');
 const User = require('../../models/User');
+const jwt = require('jsonwebtoken');
+const keys = require('../../config/keys');
 
 const router = express.Router();
 
@@ -66,11 +68,11 @@ router.post('/login', (req, res) => {
 
   // find user by email
   User.findOne({
-      email
+      email // ES6 here
     })
-    .then(user => {
+    .then(user => { // a promise 
       // check for user
-      if (!user) {
+      if (!user) { // if user does not exsi
         return res.status(404).json({
           email: 'User email not found'
         });
@@ -81,9 +83,10 @@ router.post('/login', (req, res) => {
       bcrypt.compare(password, user.password)
         .then(isMatch => {
           if (isMatch) {
-            res.json({
-              msg: 'Success'
-            })
+            // User matched
+            const payload = { id: user.id, name: user.name, avatar: user.avatar } // create jwt payload
+            // Sign token
+            jwt.sign(payload, keys.secretOfKey, { expiresIn: 3600 }); // expires in 1h
           } else {
             return res.status(400).json({
               password: 'Password Incorrect '
