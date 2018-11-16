@@ -5,10 +5,11 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const gravatar = require('gravatar');
-const User = require('../../models/User');
 const jwt = require('jsonwebtoken');
+// require keys
 const keys = require('../../config/keys');
-
+// require model
+const User = require('../../models/User');
 const router = express.Router();
 
 // @router  GET to /api/users/test
