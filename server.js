@@ -41,5 +41,9 @@ app.use('/api/profile', profile);
 app.use('/api/post', post);
 
 app.listen(port, () => {
-  console.log(`==> 🌎   Server running on port ${port}`);
+  console.log(
+    "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+    port,
+    port
+  );
 });
