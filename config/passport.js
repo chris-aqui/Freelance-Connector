@@ -29,6 +29,7 @@ module.exports = (passport) => {
       User.findById(jwt_payload.id) // this id comes from the jwt payload. verified with console.log
       .then(user => {
         if(user){
+          // console.log(user);
 
           // done is a passport error first callback accepting arguments done(error, user, info)
           return done(null, user);
