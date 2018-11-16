@@ -30,7 +30,7 @@ mongoose
 // app.get('/', (req, res) => res.send('Hello')); // dont need
 
 // Middleware for passport
-app.use(passport.initialize()) // initialises the authentication module
+app.use(passport.initialize()); // initialises the authentication module
 
 // Passport Config
 require('./config/passport')(passport);
