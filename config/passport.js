@@ -25,7 +25,17 @@ module.exports = (passport) => {
   passport.use(
     // new JwtStrategy(options, verify)
     new JwtStrategy(opts, (jwt_payload, done) => {
-      console.log(jwt_payload);
+      // console.log(jwt_payload); 
+      User.findById(jwt_payload.id) // this id comes from the jwt payload. verified with console.log
+      .then(user => {
+        if(user){
+
+          // done is a passport error first callback accepting arguments done(error, user, info)
+          return done(null, user);
+        }
+        return done(null, false); // if there is no user then return false.
+      })
+      .catch( err => console.log(err));
     }),
   );
 };
